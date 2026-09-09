@@ -120,6 +120,8 @@ test("CLI error classification is sanitized", () => {
     "login-required",
   );
   assert.equal(classifyCliError("network error FAKE_SECRET"), "failed");
+  assert.equal(classifyCliError("UnauthorizedException: Access to this role is denied"), "failed");
+  assert.equal(classifyCliError("UnauthorizedException: Session token not found or invalid"), "login-required");
   assert.equal(cliEnvironment().AWS_SHARED_CREDENTIALS_FILE, "/dev/null");
 });
 test("missing config and config mtime cache invalidation", async () => {

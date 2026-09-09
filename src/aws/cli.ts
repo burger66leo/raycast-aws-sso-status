@@ -32,7 +32,7 @@ export function cliErrorMessage(kind: CliFailure): string {
 
 export function classifyCliError(stderr: string): CliFailure {
   if (
-    /error loading sso token|token.*does not exist|sso session.*(?:expired|invalid)|token has expired|token.*expired.*refresh failed|unauthorizedexception|invalidgrantexception/i.test(
+    /error loading sso token|token.*does not exist|sso session.*(?:expired|invalid)|token has expired|token.*expired.*refresh failed|unauthorizedexception.*(?:token|session).*(?:expired|invalid)|invalidgrantexception/i.test(
       stderr,
     )
   )
