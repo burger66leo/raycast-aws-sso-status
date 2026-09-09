@@ -24,7 +24,7 @@ Native UI and real IAM Identity Center browser authentication must be checked on
 
 ## Before Store submission
 
-- Confirm license/copyright ownership and the Raycast Store username. `package.json` currently uses `leo` as a provisional local development author; replace it if it is not your Raycast username.
+- Raycast account username was verified in the app as `leo66`; the manifest author matches.
 - GitHub and CI are already public. Keep build outputs and AWS data out of commits.
 - Review the diff and screenshots for real AWS metadata. All examples must remain fictional.
 - Public repository and private security reporting are configured.

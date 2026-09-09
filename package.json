@@ -4,7 +4,7 @@
   "title": "AWS SSO Status",
   "description": "Check AWS IAM Identity Center credentials and their remaining lifetime from Raycast and your menu bar.",
   "icon": "extension-icon.png",
-  "author": "leo",
+  "author": "leo66",
   "license": "MIT",
   "platforms": [
     "macOS"
