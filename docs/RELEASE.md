@@ -1,5 +1,7 @@
 # Release checklist
 
+The English-only Store candidate and three native screenshots are prepared on [store-submission](https://github.com/burger66leo/raycast-aws-sso-status/tree/store-submission). Raycast username: `leo66`. Live browser login and background-refresh verification remain manual pre-submission checks.
+
 ## Current verification
 
 Automated tests use fictional metadata and fake AWS CLI processes. They cover discovery, formatting, expiration, malformed/missing config, missing CLI, timeout, errors, sign-in-required classification, safe arguments, and output minimization. Run tests, TypeScript, lint, and build before release.
