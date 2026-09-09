@@ -57,36 +57,6 @@
   ],
   "preferences": [
     {
-      "name": "language",
-      "type": "dropdown",
-      "required": false,
-      "title": "Language",
-      "description": "Language for extension views, menus, and messages. Raycast command and preference labels remain in English.",
-      "default": "en",
-      "data": [
-        {
-          "title": "English",
-          "value": "en"
-        },
-        {
-          "title": "繁體中文",
-          "value": "zh-TW"
-        },
-        {
-          "title": "简体中文",
-          "value": "zh-CN"
-        },
-        {
-          "title": "日本語",
-          "value": "ja"
-        },
-        {
-          "title": "한국어",
-          "value": "ko"
-        }
-      ]
-    },
-    {
       "name": "primaryProfile",
       "type": "textfield",
       "required": false,

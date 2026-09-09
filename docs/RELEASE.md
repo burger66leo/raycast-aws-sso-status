@@ -2,9 +2,10 @@
 
 ## Current verification
 
-Automated tests use fictional metadata and fake AWS CLI processes. They cover discovery, formatting, expiration, malformed/missing config, missing CLI, timeout, errors, sign-in-required classification, safe arguments, and output minimization. Run tests, TypeScript, lint, and build before release.
-
-Native UI and real IAM Identity Center browser authentication must be checked on the maintainer's Mac. They are not certified by unit tests. Initial native smoke check: the development extension installed successfully, the Status view rendered discovered local profiles and resolved credential metadata, and Raycast confirmed menu bar activation. Real browser login, minute-by-minute background scheduling, and the remaining manual cases have not been verified. No captured local AWS metadata is included in the repository.
+- Raycast username `leo66` verified in the app.
+- English-only Store source prepared; 35 tests, TypeScript, lint, and build passed.
+- Three native Raycast Window Capture screenshots (2000 × 1250 PNG) are in `metadata/`. They use an isolated fake AWS CLI and fictional profiles; no production AWS data is included.
+- Real browser reauthentication and a timed native background-refresh check still need the maintainer's manual verification before submission.
 
 ## Local manual verification
 
@@ -34,7 +35,7 @@ Native UI and real IAM Identity Center browser authentication must be checked on
 
 Follow the current [Store preparation guide](https://developers.raycast.com/basics/prepare-an-extension-for-store) and [publishing guide](https://developers.raycast.com/basics/publish-an-extension).
 
-1. Resolve the UI localization conflict: current [Raycast guidance](https://developers.raycast.com/basics/prepare-an-extension-for-store#localization--language) explicitly asks developers to avoid custom UI localization. Prepare an English UI Store variant or obtain reviewer agreement; the GitHub version and translated documentation can remain multilingual.
+1. Use this English-only `store-submission` branch. The main branch retains the multilingual UI.
 2. Confirm the manifest author is your real Raycast account, command descriptions, macOS platform, MIT license, categories, and 512×512 PNG icon.
 3. Complete the native manual checks above. Capture actual Raycast screenshots with fictional test profiles (three recommended, 2000 × 1250 PNG); do not fabricate screenshots as proof of execution.
 4. Include README, changelog, license, source, assets, and lockfile. Keep `{PR_MERGE_DATE}` in the initial changelog entry for the Store workflow.

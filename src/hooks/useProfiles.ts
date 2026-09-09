@@ -1,42 +1,36 @@
 import { signInWithToast } from "../sign-in";
-import { translator } from "../i18n";
 import { showToast, Toast, launchCommand, LaunchType, environment } from "@raycast/api";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ProfileStatus, SsoProfile } from "../aws/types";
 import { coordinator, effectiveSettings, readSnapshot, savePrimary, saveSnapshot } from "../runtime";
 import { scopeFor } from "../aws/coordinator";
 import { sessionKey } from "../aws/store";
-
 export function useProfiles() {
   const [settings, setSettings] = useState(effectiveSettings);
-  const t = useMemo(() => translator(settings.language), [settings.language]);
   const [snapshot, setSnapshot] = useState(() => readSnapshot(settings));
   const [loading, setLoading] = useState(true);
   const [signingIn, setSigningIn] = useState(false);
   const busy = useRef(false);
-  const onSignOut = useCallback(
-    async (profile: SsoProfile) => {
-      await showToast({
-        style: Toast.Style.Failure,
-        title: t("AWS Sign-In Required"),
-        message: profile.sessionName || profile.name,
-        primaryAction: {
-          title: t("Sign In"),
-          onAction: () =>
-            launchCommand({
-              name: "aws-sso-sign-in",
-              type: LaunchType.UserInitiated,
-              arguments: { profile: profile.name },
-            }),
-        },
-        secondaryAction: {
-          title: t("Open AWS SSO Status"),
-          onAction: () => launchCommand({ name: "aws-sso-status", type: LaunchType.UserInitiated }),
-        },
-      });
-    },
-    [t],
-  );
+  const onSignOut = useCallback(async (profile: SsoProfile) => {
+    await showToast({
+      style: Toast.Style.Failure,
+      title: "AWS Sign-In Required",
+      message: profile.sessionName || profile.name,
+      primaryAction: {
+        title: "Sign In",
+        onAction: () =>
+          launchCommand({
+            name: "aws-sso-sign-in",
+            type: LaunchType.UserInitiated,
+            arguments: { profile: profile.name },
+          }),
+      },
+      secondaryAction: {
+        title: "Open AWS SSO Status",
+        onAction: () => launchCommand({ name: "aws-sso-status", type: LaunchType.UserInitiated }),
+      },
+    });
+  }, []);
   const runRefresh = useCallback(
     async (force = false, onlyProfile?: string, onlySession?: string) => {
       if (busy.current) return;
@@ -94,5 +88,5 @@ export function useProfiles() {
       }
     }
   };
-  return { ...snapshot, settings, t, loading, signingIn, refresh, refreshOne, signIn, selectProfile };
+  return { ...snapshot, settings, loading, signingIn, refresh, refreshOne, signIn, selectProfile };
 }

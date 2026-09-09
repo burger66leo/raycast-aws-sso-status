@@ -1,7 +1,5 @@
 # AWS SSO Status
 
-English · [繁體中文](docs/README.zh-TW.md) · [简体中文](docs/README.zh-CN.md) · [日本語](docs/README.ja.md) · [한국어](docs/README.ko.md)
-
 AWS IAM Identity Center status and quick sign-in, right from Raycast.
 
 - **Menu Bar** — cloud icon with remaining time or ✓ / ✕, plus profile switching.
@@ -20,7 +18,7 @@ npm ci
 npm run dev
 ```
 
-Open **AWS SSO Menu Bar** in Raycast and enable Background Refresh. Choose your language, display style, and optional sign-in reminders in extension preferences.
+Open **AWS SSO Menu Bar** in Raycast and enable Background Refresh. Choose your display style and optional sign-in reminders in extension preferences.
 
 Available from GitHub; Raycast Store submission is pending.
 

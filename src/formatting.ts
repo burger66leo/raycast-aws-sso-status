@@ -1,4 +1,3 @@
-import { resolveLanguage } from "./i18n";
 import { ProfileStatus, Settings } from "./aws/types";
 export function formatRemainingTime(expiration?: string, now = Date.now()): string {
   const difference = expiration ? Date.parse(expiration) - now : NaN;
@@ -24,9 +23,9 @@ export function menuBarTitle(
   if (settings.menuBarStyle === "remaining" && usable) return formatRemainingTime(item.expiration, now);
   return usable && !item?.stale ? "✓" : "✕";
 }
-export function displayDate(date?: string, language = "en"): string {
+export function displayDate(date?: string): string {
   return date
-    ? new Date(date).toLocaleString(resolveLanguage(language) === "en" ? "en-US" : resolveLanguage(language), {
+    ? new Date(date).toLocaleString("en-US", {
         dateStyle: "medium",
         timeStyle: "short",
       })

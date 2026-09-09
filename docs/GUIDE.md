@@ -29,7 +29,7 @@ Open AWS Console opens the configured AWS access portal, where you choose an acc
 
 Open **AWS SSO Diagnostics** to inspect the config path, CLI path/version, and discovered profiles. Raycast's environment may differ from your shell; set AWS CLI Path for custom installations. Missing profiles usually indicate an unconfigured SSO profile, a different config path, or Profile Filter.
 
-The interface supports five languages. Raycast command names and preference labels remain English. Reopen a command after changing preferences. Current Raycast Store guidance asks developers to avoid custom UI localization; see [submission notes](RELEASE.md) before publishing.
+This Store version uses US English. The GitHub main branch offers optional multilingual UI.
 
 ## Security
 

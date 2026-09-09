@@ -2,7 +2,6 @@ export interface Profile {
   name: string;
   region?: string;
 }
-
 export interface SsoProfile extends Profile {
   accountId?: string;
   roleName?: string;
@@ -11,7 +10,6 @@ export interface SsoProfile extends Profile {
   ssoRegion?: string;
   issues: string[];
 }
-
 export type CredentialStatus =
   | "Signed In"
   | "Expiring Soon"
@@ -21,7 +19,6 @@ export type CredentialStatus =
   | "AWS CLI Not Found"
   | "Checking"
   | "Unknown";
-
 export interface ProfileStatus {
   stale?: boolean;
   lastSuccessAt?: string;
@@ -33,17 +30,14 @@ export interface ProfileStatus {
   checkedAt?: string;
   message?: string;
 }
-
 export interface Settings {
   primaryProfile?: string;
   profileFilter?: string;
-  language?: string;
   threshold: string;
   menuBarStyle: string;
   awsCliPath?: string;
   notifyOnSignOut?: boolean;
 }
-
 export interface Snapshot {
   profiles: ProfileStatus[];
   notice?: string;
