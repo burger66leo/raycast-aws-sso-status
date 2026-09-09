@@ -1,12 +1,12 @@
 # Release checklist
 
-The English-only Store candidate and three native screenshots are prepared on [store-submission](https://github.com/burger66leo/raycast-aws-sso-status/tree/store-submission). Raycast username: `leo66`. Live browser login and background-refresh verification remain manual pre-submission checks.
+The English-only Store candidate and three native screenshots are prepared on [store-submission](https://github.com/burger66leo/raycast-aws-sso-status/tree/store-submission). Raycast username: `leo66`. The maintainer confirmed browser login and background-refresh testing on September 9, 2026. Store review: https://github.com/raycast/extensions/pull/30915.
 
 ## Current verification
 
 Automated tests use fictional metadata and fake AWS CLI processes. They cover discovery, formatting, expiration, malformed/missing config, missing CLI, timeout, errors, sign-in-required classification, safe arguments, and output minimization. Run tests, TypeScript, lint, and build before release.
 
-Native UI and real IAM Identity Center browser authentication must be checked on the maintainer's Mac. They are not certified by unit tests. Initial native smoke check: the development extension installed successfully, the Status view rendered discovered local profiles and resolved credential metadata, and Raycast confirmed menu bar activation. Real browser login, minute-by-minute background scheduling, and the remaining manual cases have not been verified. No captured local AWS metadata is included in the repository.
+Native UI and real IAM Identity Center browser authentication must be checked on the maintainer's Mac. They are not certified by unit tests. Initial native smoke check: the development extension installed successfully, the Status view rendered discovered local profiles and resolved credential metadata, and Raycast confirmed menu bar activation. The maintainer subsequently confirmed real browser login and background-refresh testing. No captured local AWS metadata is included in the repository.
 
 ## Local manual verification
 
