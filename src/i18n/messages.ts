@@ -1,4 +1,12 @@
 export const messages = {
+  "Shared SSO session needs sign-in. This profile has not been rechecked.": [
+    "Shared SSO session needs sign-in. This profile has not been rechecked.",
+    "共用的 SSO 工作階段需要登入；此設定檔尚未重新檢查。",
+    "共用的 SSO 会话需要登录；此配置文件尚未重新检查。",
+    "共有 SSO セッションへのサインインが必要です。このプロファイルはまだ再確認されていません。",
+    "공유 SSO 세션에 로그인이 필요합니다. 이 프로필은 아직 다시 확인하지 않았습니다.",
+  ],
+
   "AWS connection failed. Automatic checks will retry less frequently.": [
     "AWS connection failed. Automatic checks will retry less frequently.",
     "AWS 連線失敗，將降低自動重試頻率。",

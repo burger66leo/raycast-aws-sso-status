@@ -2,6 +2,7 @@
 
 ## [Initial Version] - {PR_MERGE_DATE}
 
+- Simplify documentation into five concise language versions and avoid inferring unverified role status from a shared-session failure.
 - Preserve cached menu status during refresh, flag stale results, and show last successful checks.
 - Add primary-profile switching, session coordination, retry backoff, optional sign-in reminders, and diagnostics.
 - Publish the source on GitHub and enable the voluntary Star link.

@@ -172,11 +172,11 @@ export class StatusCoordinator {
                   if (!options.force && session.nextRetryAt > now) {
                     results.set(profile.name, {
                       ...cached,
-                      status: session.needsLogin ? "Not Signed In" : "Unknown",
+                      status: cached.status === "Not Signed In" ? "Not Signed In" : "Unknown",
                       stale: !!cached.lastSuccessAt,
                       nextRetryAt: session.nextRetryAt,
                       message: session.needsLogin
-                        ? cliErrorMessage("login-required")
+                        ? "Shared SSO session needs sign-in. This profile has not been rechecked."
                         : "AWS connection failed. Automatic checks will retry less frequently.",
                     });
                     continue;
@@ -233,10 +233,13 @@ export class StatusCoordinator {
                       const prior = results.get(sibling.name)!;
                       results.set(sibling.name, {
                         ...prior,
-                        status: session.needsLogin ? "Not Signed In" : "Unknown",
+                        status: profileKey(sibling, scope) === pKey ? result.status : "Unknown",
                         stale: !!prior.lastSuccessAt,
                         nextRetryAt: session.nextRetryAt,
-                        message: result.message,
+                        message:
+                          session.needsLogin && profileKey(sibling, scope) !== pKey
+                            ? "Shared SSO session needs sign-in. This profile has not been rechecked."
+                            : result.message,
                       });
                     }
                     break;

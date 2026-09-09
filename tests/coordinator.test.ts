@@ -258,3 +258,22 @@ test("profile aliases of the same account and role share status metadata", () =>
       ["dev", "production"],
     );
   }));
+
+test("a session login failure does not assert unverified roles are signed out", () =>
+  context(async (_dir, store) => {
+    let calls = 0;
+    const service = new StatusCoordinator(store, {
+      findCli: async () => "fake",
+      resolve: async (profile) => {
+        calls++;
+        return { profile, status: "Not Signed In", failureKind: "login-required", checkedAt: new Date().toISOString() };
+      },
+    });
+    const first = await service.refresh(settings);
+    assert.equal(first.profiles[0].status, "Not Signed In");
+    assert.equal(first.profiles[1].status, "Unknown");
+    assert.match(first.profiles[1].message!, /has not been rechecked/);
+    const second = await service.refresh(settings);
+    assert.equal(second.profiles[1].status, "Unknown");
+    assert.equal(calls, 1);
+  }));

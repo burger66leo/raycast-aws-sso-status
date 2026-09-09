@@ -22,25 +22,26 @@ Native UI and real IAM Identity Center browser authentication must be checked on
 12. Verify the public GitHub URL in `src/project.ts` and the voluntary Star link; check that it opens the repository only on click.
 13. Inspect in Raycast light and dark appearance and on a crowded menu bar.
 
-## GitHub open source preparation
+## Before Store submission
 
 - Confirm license/copyright ownership and the Raycast Store username. `package.json` currently uses `leo` as a provisional local development author; replace it if it is not your Raycast username.
-- Create a repository, add this project and lockfile, and enable the included GitHub Actions workflow. Do not commit node_modules, build outputs, AWS config, or credential files.
+- GitHub and CI are already public. Keep build outputs and AWS data out of commits.
 - Review the diff and screenshots for real AWS metadata. All examples must remain fictional.
-- Add a repository URL and security reporting contact after the repository exists. Choose your own release tag after manual verification.
+- Public repository and private security reporting are configured.
 - The public source repository is https://github.com/burger66leo/raycast-aws-sso-status. Raycast Store submission remains a separate step.
 
 ## Raycast Store submission
 
 Follow the current [Store preparation guide](https://developers.raycast.com/basics/prepare-an-extension-for-store) and [publishing guide](https://developers.raycast.com/basics/publish-an-extension).
 
-1. Confirm the manifest author is your real Raycast account, command descriptions, macOS platform, MIT license, categories, and 512×512 PNG icon.
-2. Complete the native manual checks above. Capture actual Raycast screenshots with fictional test profiles; do not fabricate screenshots as proof of execution.
-3. Include README, changelog, license, source, assets, and lockfile. Keep `{PR_MERGE_DATE}` in the initial changelog entry for the Store workflow.
-4. Run `npm test`, `npm run typecheck`, `npm run lint`, and `npm run build` without suppressing rules.
-5. Run `npm run publish` when ready and follow Raycast's login/submission workflow. This opens a PR to the Raycast extensions repository; it does not guarantee Store acceptance.
-6. Explain why AWS CLI is required, what data is read, why credential expiration is not an SSO reauthentication deadline, and how reviewers can test using a fictional config and their own SSO environment.
-7. Address reviewer feedback and wait for approval. Keep the standalone repository and Store copy synchronized for later updates.
+1. Resolve the UI localization conflict: current [Raycast guidance](https://developers.raycast.com/basics/prepare-an-extension-for-store#localization--language) explicitly asks developers to avoid custom UI localization. Prepare an English UI Store variant or obtain reviewer agreement; the GitHub version and translated documentation can remain multilingual.
+2. Confirm the manifest author is your real Raycast account, command descriptions, macOS platform, MIT license, categories, and 512×512 PNG icon.
+3. Complete the native manual checks above. Capture actual Raycast screenshots with fictional test profiles (three recommended, 2000 × 1250 PNG); do not fabricate screenshots as proof of execution.
+4. Include README, changelog, license, source, assets, and lockfile. Keep `{PR_MERGE_DATE}` in the initial changelog entry for the Store workflow.
+5. Run `npm test`, `npm run typecheck`, `npm run lint`, and `npm run build` without suppressing rules.
+6. Run `npm run publish` when ready and follow Raycast's login/submission workflow. This opens a PR to the Raycast extensions repository; it does not guarantee Store acceptance.
+7. Explain why AWS CLI is required, what data is read, why credential expiration is not an SSO reauthentication deadline, and how reviewers can test using a fictional config and their own SSO environment.
+8. Address reviewer feedback and wait for approval. Keep the standalone repository and Store copy synchronized for later updates.
 
 ## Reliability acceptance cases
 
